@@ -44,7 +44,8 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'firefox'
+        browserName: 'chrome',
+        screenResolution: '1366x768'
     }],
     //
     // ===================
@@ -58,7 +59,7 @@ exports.config = {
     sync: true,
     //
     // Level of logging verbosity: silent | verbose | command | data | result | error
-    logLevel: 'silent',
+    logLevel: 'verbose',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -80,11 +81,11 @@ exports.config = {
     baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 100000000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
-    connectionRetryTimeout: 90000,
+    connectionRetryTimeout: 9000000000,
     //
     // Default request retries count
     connectionRetryCount: 3,
@@ -129,7 +130,7 @@ exports.config = {
     jasmineNodeOpts: {
         //
         // Jasmine default timeout
-        defaultTimeoutInterval: 10000,
+        defaultTimeoutInterval: 100000000,
         //
         // The Jasmine framework allows interception of each assertion in order to log the state of the application
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time
@@ -169,8 +170,9 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        browser.windowHandleSize({width: 1600, height: 900})
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name
