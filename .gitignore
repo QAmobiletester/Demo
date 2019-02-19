@@ -1,0 +1,5 @@
+errorShots/
+node_modules/
+testResults/
+report/
+cmd.exe
